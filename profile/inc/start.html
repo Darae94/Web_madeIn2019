@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+	     Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>profile</title>
+    <meta name="description" content="" />
+    <meta name="author" content="기타" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Black+And+White+Picture|Cute+Font|Nanum+Gothic|Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/profile/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/profile/css/style.css" />
+
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+      //공지사항 없애기
+
+      var $popupWrap;
+
+      $(document).ready(function () {
+        $popupWrap = $("#popup_wrap");
+
+        $popupWrap.bind("click", onPopupHide);
+        $popupWrap.children().bind("click", onPopupHide);
+      });
+
+      function onPopupHide() {
+        $popupWrap.hide();
+      }
+    </script>
+
+    <script>
+      /* 스크롤 시 애니메이션 */
+
+      var $aboutImg;
+      var $aboutBtn;
+      var $aboutTbox;
+      var aboutCount;
+
+      var $box02;
+      var $box03;
+
+      var $skill_li;
+      var skillNum;
+      var skillValue = ["90%", "85%", "90%", "70%", "90%", "90%", "80%", "70%"];
+
+      var $logoList;
+      var logoCount;
+
+      var $frameList;
+      var frameCount;
+
+      var $aptanaList;
+
+      var scrollPosition;
+
+      $(document).ready(function () {
+        // 소개
+        $aboutImg = $("#about_img");
+        $aboutBtn = $("#about_btn");
+        $aboutTbox = $("#about_tbox").children();
+        aboutCount = $aboutTbox.size();
+
+        $aboutImg.css({ opacity: 0 });
+        $aboutBtn.css({ opacity: 0 });
+        $aboutTbox.css({ opacity: 0, top: -50 });
+
+        // uiux
+        $box02 = $("#ux");
+        $box03 = $("#think");
+
+        $box02.css({ left: 0 });
+        $box03.css({ top: 0 });
+
+        // 스킬
+        $skill_li = $("#skill_inner li");
+        skillNum = $skill_li.size();
+
+        // 로고
+        $logoList = $("#logo_li li");
+        logoCount = $logoList.size();
+
+        // 프레임
+        $frameList = $("#frame_li li");
+        frameCount = $logoList.size();
+
+        // 압타나
+        $aptanaList = $("#aptana_li ul");
+
+        for (var f = 0; f <= frameCount; f++) {
+          $frameList
+            .eq(f)
+            .animate(
+              { left: -150 * (f + 1), opacity: 0 },
+              300 * (1 + f),
+              "easeOutCubic"
+            );
+        }
+
+        $(window).bind("scroll", onMove);
+      });
+
+      function onMove() {
+        scrollPosition = $(document).scrollTop();
+
+        // 소개
+        if (scrollPosition >= 608) {
+          $aboutImg.animate({ opacity: 1 }, 300, "easeOutCubic", function () {
+            $aboutBtn.animate({ opacity: 1 }, 300, "easeOutCubic");
+          });
+
+          for (var m = 0; m <= aboutCount; m++) {
+            $aboutTbox
+              .eq(m)
+              .animate({ opacity: 1, top: 0 }, 300 * (1 + m), "swing");
+          }
+        }
+
+        // uiux
+        if (scrollPosition >= 1466) {
+          $box02.animate({ left: "51.4%" }, 500, "swing");
+          $box03.animate({ top: 280 }, 500, "swing");
+        }
+
+        // 스킬
+        if (scrollPosition >= 2295) {
+          for (var i = 0; i <= skillNum; i++) {
+            $skill_li
+              .eq(i)
+              .children("span")
+              .animate({ width: skillValue[i] }, 300 * i + 100, "easeOutCubic");
+          }
+        }
+
+        // 로고
+        if (scrollPosition >= 2956) {
+          for (var a = 0; a <= logoCount; a++) {
+            $logoList
+              .eq(a)
+              .animate({ opacity: 1, top: 0 }, 500 * (1 + a), "easeOutBack");
+          }
+        }
+
+        // 프레임
+        if (scrollPosition >= 3636) {
+          $frameList.animate({ left: 0, opacity: 1 }, 1000, "easeOutCubic");
+        }
+
+        // 압타나
+        if (scrollPosition >= 4411) {
+          $aptanaList.animate({ top: 0, opacity: 1 }, 500, "swing");
+        }
+      }
+    </script>
+
+    <script>
+      /* 메인 메뉴 애니메이션 */
+
+      var $mainMenu;
+      var menuCount;
+      var clickMenu;
+      var scrollTop;
+      var scrollValue = [0, 758, 1616, 2445, 3196, 3836, 4561, 5236];
+
+      $(document).ready(function () {
+        $mainMenu = $("#main_menu a");
+        menuCount = $mainMenu.size();
+
+        $mainMenu.css({ top: -50, opacity: 0 });
+        // 메뉴 모션
+        for (var n = 0; n <= menuCount; n++) {
+          $mainMenu
+            .eq(n)
+            .animate({ top: 0, opacity: 1 }, 300 * (n + 0.2), "easeOutCubic");
+        }
+
+        $mainMenu.bind("mouseenter", onMenuOver);
+        $("#main_menu").bind("mouseleave", onScroll);
+        $mainMenu.bind("click", onMenuClick);
+        $(window).bind("scroll", onScroll);
+      });
+
+      function onMenuOver() {
+        clickNum = $mainMenu.index($(this));
+
+        onMenuSelect(clickNum);
+      }
+
+      function onMenuClick() {
+        clickNum = $mainMenu.index($(this));
+
+        onMenuSlide(clickNum);
+
+        onMenuSelect(clickNum);
+      }
+
+      function onScroll() {
+        scrollTop = $(document).scrollTop();
+
+        if (scrollTop >= scrollValue[0] && scrollTop < scrollValue[1]) {
+          clickNum = 0;
+        } else if (scrollTop >= scrollValue[1] && scrollTop < scrollValue[2]) {
+          clickNum = 1;
+        } else if (scrollTop >= scrollValue[2] && scrollTop < scrollValue[3]) {
+          clickNum = 2;
+        } else if (scrollTop >= scrollValue[3] && scrollTop < scrollValue[4]) {
+          clickNum = 3;
+        } else if (scrollTop >= scrollValue[4] && scrollTop < scrollValue[5]) {
+          clickNum = 4;
+        } else if (scrollTop >= scrollValue[5] && scrollTop < scrollValue[6]) {
+          clickNum = 5;
+        } else if (scrollTop >= scrollValue[6] && scrollTop < scrollValue[7]) {
+          clickNum = 6;
+        } else {
+          clickNum = 7;
+        }
+
+        onMenuSelect(clickNum);
+      }
+
+      function onMenuSelect(selectMenu) {
+        $mainMenu.parent().removeClass("select_menu");
+        $mainMenu.parent().eq(selectMenu).addClass("select_menu");
+      }
+
+      function onMenuSlide(selectMenu) {
+        $("body,html").stop();
+        $("body,html").animate({ "scroll-top": scrollValue[selectMenu] });
+      }
+    </script>
+
+    <script>
+      /* 비주얼 애니메이션 */
+
+      var $visualBack;
+      var $visualTitle;
+      var $visualSubtit;
+      var $visualText;
+      var $visualBtn;
+      var $visualBg01;
+      var $visualBg02;
+      var $visualImg;
+      var $visuelList;
+      var $visualLi;
+      var $visualHeight;
+
+      $(document).ready(function () {
+        $visualBack = $("#visual_wrap");
+        $visualTitle = $("#visual_tit");
+        $visualSubtit = $("#visual_sub_tit");
+        $visualText = $("#visual_txt");
+        $visualBtn = $("#visual_btn");
+        $visualBg01 = $("#visual_bg01");
+        $visualBg02 = $("#visual_bg02");
+        $visualImg = $("#visual_img");
+        $visualList = $visualImg.children();
+        $visualLi = $visualList.children().eq(1);
+
+        onVisualResize();
+
+        /* 비주얼 모션 */
+        $visualBack.animate(
+          { opacity: 1, top: 0 },
+          500,
+          "easeOutCubic",
+          function () {
+            $visualTitle.animate(
+              { opacity: 1 },
+              500,
+              "easeOutCubic",
+              function () {
+                $visualTitle.addClass("strong");
+                $visualBg02.show();
+                $visualImg.show();
+                $visualBg01.show();
+
+                $visualSubtit.animate(
+                  { opacity: 1, top: 0 },
+                  500,
+                  "easeOutCubic",
+                  function () {
+                    $visualTitle.removeClass("strong");
+                    $visualText.animate(
+                      { opacity: 1, top: 0 },
+                      500,
+                      "easeOutCubic",
+                      function () {
+                        $visualBtn.animate(
+                          { opacity: 1, left: 0 },
+                          500,
+                          "easeOutCubic"
+                        );
+                      }
+                    );
+                  }
+                );
+              }
+            );
+          }
+        );
+
+        $visualImg.bind("mouseenter", onMouseOver);
+        $visualImg.bind("mouseleave", onMouseOut);
+      });
+
+      $(window).resize(function () {
+        onVisualResize();
+      });
+
+      function onVisualResize() {
+        $visualHeight = $(window).innerHeight();
+
+        $visualBack.css({ height: $visualHeight - 63 });
+      }
+
+      function onMouseOver() {
+        $visualLi.stop();
+        $visualLi.animate(
+          { left: 200, opacity: 0 },
+          500,
+          "easeInOutBack",
+          function () {
+            $visualLi.hide();
+          }
+        );
+      }
+
+      function onMouseOut() {
+        $visualLi.show();
+        $visualLi.stop();
+        $visualLi.animate({ left: 0, opacity: 1 }, 500, "easeInOutBack");
+      }
+    </script>
+
+    <script>
+      /* 아이콘 애니메이션 */
+
+      var $social_list;
+      var overNum;
+
+      $(document).ready(function () {
+        $social_list = $("#social_icon li");
+
+        $social_list.bind("mouseenter", onSocialOver);
+        $social_list.bind("mouseleave", onSocialOut);
+      });
+
+      function onSocialOver() {
+        overNum = $social_list.index($(this));
+
+        onSocialOut();
+        $social_list
+          .eq(overNum)
+          .css({ "background-color": "#333", "background-position-x": -28 });
+      }
+
+      function onSocialOut() {
+        $social_list.css({
+          "background-color": "#fff",
+          "background-position-x": 0,
+        });
+      }
+    </script>
+
+    <script>
+      /* 로고 애니메이션 */
+
+      var $logoLi;
+      var logoLiNum;
+
+      $(document).ready(function () {
+        $logoLi = $("#logo_li li");
+
+        $logoLi.bind("mouseenter", onLogoOver);
+        $logoLi.bind("mouseleave", onLogoOut);
+      });
+
+      function onLogoOver() {
+        logoLiNum = $logoLi.index($(this));
+
+        onLogoOut();
+
+        $logoLi.eq(logoLiNum).children(".logo_ibox").stop();
+        $logoLi
+          .eq(logoLiNum)
+          .children(".logo_ibox")
+          .animate({ top: -5 }, 300, "easeOutCubic");
+        $logoLi.eq(logoLiNum).children(".logo_ibox").addClass("selected_logo");
+      }
+
+      function onLogoOut() {
+        $logoLi.children(".logo_ibox").removeClass("selected_logo");
+        $logoLi.children(".logo_ibox").stop();
+        $logoLi.children(".logo_ibox").animate({ top: 0 }, 300, "easeOutCubic");
+      }
+    </script>
+
+    <script>
+      /* 프레임 애니메이션 */
+
+      var $frameLi;
+      var frameNum;
+
+      $(document).ready(function () {
+        $frameLi = $("#frame_li li");
+
+        $(".frame_hover").css({ opacity: 0 });
+        $(".frame_hover").hide();
+
+        $frameLi.bind("mouseenter", onFrameOver);
+        $frameLi.bind("mouseleave", onFrameOut);
+      });
+
+      function onFrameOver() {
+        frameNum = $frameLi.index($(this));
+
+        onFrameOut();
+
+        $frameLi.eq(frameNum).children(".frame_hover").show();
+        $frameLi.eq(frameNum).children(".frame_hover").stop();
+        $frameLi
+          .eq(frameNum)
+          .children(".frame_hover")
+          .animate({ opacity: 1 }, 300, "easeOutCubic");
+      }
+
+      function onFrameOut() {
+        $frameLi.children(".frame_hover").stop();
+        $frameLi
+          .children(".frame_hover")
+          .animate({ opacity: 0 }, 300, "easeOutCubic");
+        $frameLi.children(".frame_hover").hide();
+      }
+    </script>
+
+    <script>
+      /* 압타나 애니메이션 */
+
+      var $aptanaLi;
+      var $aptanaHover;
+      var $aptanaViewWrap;
+      //var $sptanaView;
+      var aptanaNum;
+
+      $(document).ready(function () {
+        $aptanaLi = $("#aptana_li li");
+        $aptanaHover = $(".aptana_li_img");
+        $aptanaViewWrap = $("#aptana_view_wrap");
+        $aptanaView = $(".aptana_img_click");
+
+        $(".aptana_img_hover").css({ opacity: 0 });
+        $(".aptana_img_hover").hide();
+
+        $aptanaHover.bind("mouseenter", onAptanaOver);
+        $aptanaHover.bind("mouseleave", onAptanaOut);
+        $aptanaHover.bind("click", onAptanaViewOver);
+        $aptanaViewWrap.bind("click", onAptanaViewOut);
+        $aptanaView.bind("click", onAptanaViewOut);
+      });
+
+      function onAptanaOver() {
+        aptanaNum = $aptanaHover.index($(this));
+
+        onAptanaOut();
+
+        $aptanaHover.eq(aptanaNum).children("div").show();
+        $aptanaHover.eq(aptanaNum).children("div").stop();
+        $aptanaHover
+          .eq(aptanaNum)
+          .children("div")
+          .animate({ opacity: 1 }, 300, "easeOutCubic");
+      }
+
+      function onAptanaOut() {
+        $aptanaHover.children("div").stop();
+        $aptanaHover
+          .children("div")
+          .animate({ opacity: 0 }, 300, "easeOutCubic");
+        $aptanaHover.children("div").hide();
+      }
+
+      function onAptanaViewOver() {
+        aptanaNum = $aptanaHover.index($(this));
+        //alert(aptanaNum);
+        $aptanaViewWrap.show();
+        $aptanaViewWrap.animate({ opacity: 1 }, 300, "easeOutCubic");
+        $aptanaView.eq(aptanaNum).show();
+      }
+
+      function onAptanaViewOut() {
+        $aptanaView.hide();
+        $aptanaViewWrap.animate(
+          { opacity: 0 },
+          300,
+          "easeOutCubic",
+          function () {
+            $aptanaViewWrap.hide();
+          }
+        );
+      }
+    </script>
+
+    <script>
+      /* 사이트 애니메이션 */
+
+      var $siteWrap;
+      var $siteList;
+      var $siteLi;
+      var sildeWidth;
+      var slideNum;
+      var slidePosition;
+      var timer;
+
+      var $siteImg;
+      var $siteText;
+      var $siteBtn;
+
+      $(window).load(function () {
+        $siteWrap = $("#site_li");
+        $siteList = $siteWrap.children("ul");
+        $siteLi = $siteList.children();
+        slideNum = $siteLi.size();
+
+        $siteImg = $(".site_img");
+        $siteText = $(".site_txt");
+        $siteBtn = $(".site_btn");
+
+        onResize();
+        $siteLi.last().prependTo($siteList);
+        $siteImg.addClass("selected");
+
+        $("#site_prev_btn").bind("click", onSiteBack);
+        $("#site_next_btn").bind("click", onSiteSlide);
+        $("window").bind("scroll", onSiteAuto);
+        $("#site_li").bind("mouseenter", onSiteStop);
+        $("#site_li_btn").bind("mouseenter", onSiteStop);
+        $("#site_li").bind("mouseleave", onSiteAuto);
+        $("#site_li_btn").bind("mouseleave", onSiteAuto);
+      });
+
+      $(window).resize(function () {
+        onResize();
+      });
+
+      function onResize() {
+        sildeWidth = $siteWrap.innerWidth();
+
+        $siteList.css({ width: sildeWidth * slideNum });
+        $siteLi.css({ width: sildeWidth });
+        $siteList.css({ left: -sildeWidth });
+      }
+
+      function onSiteSlide() {
+        slidePosition = $siteList.position().left;
+
+        $siteImg.removeClass("selected");
+
+        $("#site_li ul:not(:animated)").animate(
+          { left: slidePosition - sildeWidth },
+          500,
+          "swing",
+          function () {
+            $siteImg.addClass("selected");
+            $(this).children().first().appendTo($siteList);
+            $(this).css({ left: -sildeWidth });
+          }
+        );
+      }
+
+      function onSiteBack() {
+        slidePosition = $siteList.position().left;
+
+        $siteImg.removeClass("selected");
+
+        $("#site_li ul:not(:animated)").animate(
+          { left: slidePosition + sildeWidth },
+          500,
+          "swing",
+          function () {
+            $siteImg.addClass("selected");
+            $(this).children().last().prependTo($siteList);
+            $(this).css({ left: -sildeWidth });
+          }
+        );
+      }
+
+      function onSiteAuto() {
+        scrollTop = $(document).scrollTop();
+
+        if (scrollTop >= 4886) {
+          timer = setInterval(onSiteSlide, 2000);
+        }
+      }
+
+      function onSiteStop() {
+        clearInterval(timer);
+      }
+    </script>
+  </head>
+</html>

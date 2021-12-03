@@ -1,0 +1,546 @@
+/* etc */
+.hidden{
+	width:1px; height:1px; font-size:0; line-height:0; position:absolute; top:0; left:0;
+}
+a{
+	text-decoration:none;
+}
+
+/* 스킵메뉴 속성 */
+#skip a{
+	width:1px; height:1px; font-size:0; line-height:0; position:absolute; top:0; left:0; z-index:99999999;
+}
+#skip a:focus{
+	width:100%; height:30px; font-size:16px; line-height:30px; background:#000; color:#fff; text-align:center;
+}
+
+/* 헤더 영역 속성 */
+header{
+	width:100%; height:80px; position:absolute; background:rgba(255,255,255,.8); top:0; left:0; z-index:5;
+}
+#header_inner{
+	width:1200px; height:100%; position:relative; top:0; left:0; margin:0 auto;
+}
+#logo{
+	width:174px; height:38px; position:absolute; top:50%; left:50px; margin-top:-19px;
+}
+#logo img{
+	width:100%;
+}
+#gnb{
+	width:500px; height:30px; position:absolute; top:50%; right:0px; margin-top:-15px;
+}
+#gnb ul{
+	width:100%; height:100%;
+}
+#gnb li{
+	margin:0 3.4%; float:left;
+}
+#gnb a{
+	font:normal 1em/30px "Noto Sans"; color:#777;
+}
+
+/* 비쥬얼 영역 속성 */
+#visual_wrap{
+	width:100%; height:780px; float:left; position:relative; top:0; left:0;
+}
+#visual_list{
+	width:100%; height:100%; position:relative; top:0; left:0; overflow:hidden;
+}
+#visual_list li{
+	width:100%; height:100%; float:left; position:relative; top:0; left:0;
+}
+#visual_list li:first-child{
+	background:url("/clamp_/images/sakura.png")no-repeat center; background-size:cover;
+}
+#visual_list li:nth-child(2){
+	background:url("/clamp_/images/tsubasa.png")no-repeat center; background-size:cover;
+}
+#visual_list li:last-child{
+	background:url("/clamp_/images/holic.png")no-repeat center; background-size:cover;
+}
+.visual_txt{
+	width:1100px; height:256px; position:absolute; top:50%; left:50%; margin-top:-128px; margin-left:-550px;
+}
+.sub_tit{
+	font:normal 1.375em/40px "Noto Sans"; color:#fff; text-align:center; letter-spacing:4px;
+}
+.tit{
+	font:bold 3em/58px "Noto Sans"; color:#fff; text-align:center; letter-spacing:2px;
+}
+.txt{
+	font:normal 1em/30px "Noto Sans KR"; color:#fff; text-align:center; margin:20px 20% 35px; box-sizing:border-box;
+}
+.more_btn{
+	width:152px; height:43px;margin:0 auto; text-align:center;
+	border-radius:20px; border:solid 1px #fff; box-sizing:border-box;
+}
+.more_btn a{
+	font:normal 0.875em/41px "Noto Sans"; color:#fff;
+}
+#slide_btn{
+	width:100%; height:60px; position:absolute; top:50%; left:0; margin-top:-30px;
+}
+#slide_btn p{
+	width:60px; height:100%; background:rgba(255,255,255,0.4); border-radius:50%;
+	font:bold 1.250em/60px "Nanum Gothic"; color:#fff; text-align:center;
+}
+#prev_btn{
+	float:left; margin-left:20px;
+}
+#next_btn{
+	float:right; margin-right:20px;
+}
+
+/* 클램프 작가 영역 속성 */
+#clamp_writer_wrap{
+	width:100%; min-height:280px; float:left;
+}
+#clamp_writer_inner{
+	width:1200px; margin:0 auto; padding:100px 50px; box-sizing:border-box;
+}
+#writer_list{
+	width:100%; margin-bottom:60px;
+}
+#writer_list li{
+	width:25%; float:left; margin-bottom:50px;
+}
+.clamp_img{
+	width:100px; height:100px; float:left; margin:0 20px 20px;
+}
+.clamp_img img{
+	width:100%;
+}
+.clamp_writer{
+	font:bold 1.125em "Noto Sans KR"; color:#666; margin-bottom:12px;
+}
+.clamp_intro{
+	font:normal 0.875em/28px "Noto Sans KR"; color:#999;
+}
+
+/* 클램프 소개 영역 속성 */
+#clamp_about_wrap{
+	width:100%; min-height:280px; float:left; background:#444;
+}
+#clamp_about_inner{
+	width:1200px; margin:0 auto; padding:80px 50px; box-sizing:border-box;
+}
+#clamp_about_title{
+	font:bold 1.250em "Noto Sans"; color:#fff; margin-bottom:20px;
+}
+#clamp_about_text{
+	width:46%; margin-right:8%; margin-bottom:80px; float:left;
+	font:normal 0.938em/24px "Noto Sans KR"; color:#fff; text-align:justify;
+}
+#clamp_about_list{
+	width:46%; float:left;
+}
+#clamp_about_list ul{
+	width:100%;
+}
+#clamp_about_list li{
+	width:100%; position:relative; top:0; left:0;
+}
+.c_a_li_tit{
+	font:normal 0.938em "Noto Sans"; color:#fff; margin-bottom:10px;
+}
+.c_a_li_perbase{
+	width:100%; height:15px; background:#fff; border-radius:20px; margin-bottom:15px;
+}
+.c_a_li_perreal{
+	height:15px; background:#a87d4f; border-radius:10px;
+	position:absolute; bottom:0; left:0; 
+}
+#clamp_about_list li:first-child .c_a_li_perreal{
+	width:54%;
+}
+#clamp_about_list li:last-child .c_a_li_perreal{
+	width:46%;
+}
+
+/* 클램프 소개 영역 속성 */
+#clamp_book_wrap{
+	width:100%; min-height:200px; float:left;
+}
+#clamp_book_inner{
+	width:1200px; margin:0 auto; padding:80px 50px; box-sizing:border-box;
+}
+#book_list{
+	width:100%;
+}
+#book_list li{
+	width:25%; text-align:center; float:left;
+}
+.c_b_li_count{
+	font:bold 3em "Noto Sans"; color:#666; margin-bottom:25px;
+	position:relative; top:0; left:0;
+}
+.c_b_li_count:after{
+	content:''; width:30px; height:2px; background:#000;
+	position:absolute; bottom:-12px; left:50%; margin-left:-15px;
+}
+.c_b_li_tit{
+	font:normal 1em "Noto Sans"; color:#999; margin-bottom:80px;
+}
+
+/* 사쿠라 소개 영역 속성 */
+#sakura_wrap{
+	width:100%; min-height:280px; float:left; background:#f6f6f6; padding:80px 0 0; box-sizing:border-box;
+}
+.con_sub_title{
+	width:100%; font:normal 1.000em "Noto Sans"; color:#999;
+	letter-spacing:4px; text-align:center; float:left;
+}
+.con_title{
+	width:100%; font:bold 1.375em "Noto Sans"; color:#666; float:left;
+	letter-spacing:2px; text-align:center; margin-bottom:20px;
+}
+#con_text{
+	width:100%; font:normal 0.875em "Noto Sans"; color:#999; text-align:center;
+	margin-bottom:50px; float:left;
+}
+#con_img_list{
+	width:100%; float:left;
+}
+#con_img_list ul{
+	width:100%;
+}
+#con_img_list li{
+	width:25%; float:left;
+}
+#con_img_list img{
+	width:100%;
+}
+.con_img_last{
+	width:100%; min-height:60px; background:#444; float:left;
+}
+.con_img_last_inner{
+	width:1200px; margin:30px auto; text-align:center;
+}
+.con_img_txt{
+	width:70%; font:normal 1em/36px "Noto Sans KR"; color:#fff; float:left; margin-bottom:30px;
+}
+.con_img_btn{
+	width:200px; padding:10px 20px; border:solid 1px #fff; box-sizing:border-box;
+	background:#fff; border-radius:20px; float:left;
+}
+.con_img_btn a{
+	font:bold 0.750em "Noto Sans"; color:#000;
+}
+
+/* 츠바사 영역 속성 */
+#tsubasa_wrap{
+	width:100%; min-height:200px; float:left;
+}
+#tsubasa_inner{
+	width:1200px; margin:80px auto;
+}
+#tsubasa_tbox{
+	width:45%; margin:5%; float:left;/* margin-bottom:80px;*/
+}
+#tsu_tit{
+	font:bold 1.250em "Noto Sans KR"; color:#666; margin-bottom:25px;
+}
+#tsu_txt{
+	font:normal 1.000em/28px "Noto Sans KR"; color:#999; text-align:justify; margin-bottom:35px;
+}
+#tsu_btn{
+	width:150px; box-sizing:border-box; text-align:center;
+	border:solid 2px #999; border-radius:20px; padding:10px 20px;
+}
+#tsu_btn a{
+	font:bold 0.750em "Noto Sans"; color:#000;
+}
+#tsubasa_ibox{
+	width:45%; margin-bottom:80px; padding:4% 2% 0; box-sizing:border-box; float:left;
+	text-align:center;
+}
+#tsubasa_ibox img{
+	width:100%;
+}
+#tsubasa_toon_wrap{
+	width:100%; min-height:200px; float:left; background:#f6f6f6;
+}
+#tsubasa_toon_inner{
+	width:1200px; margin:80px auto;
+}
+#tsubasa_toon_inner ul{
+	width:98%; margin:0 auto;
+}
+#tsubasa_toon_inner li{
+	width:20%; float:left;
+}
+.tsubasa_toon_img{
+	width:40%; margin:0 auto 10px;
+}
+.tsubasa_toon_img img{
+	width:100%;
+}
+.tsubasa_toon_txt{
+	font:normal 1em "Noto Sans"; color:#444; text-align:center; margin-bottom:60px;
+}
+
+/* holic */
+#holic_wrap{
+	width:100%; min-height:200px; float:left;
+}
+#holic_inner{
+	width:1200px; margin:80px auto;
+}
+#holic_ibox{
+	width:45%; margin-bottom:80px; padding:2% 2% 0; box-sizing:border-box; float:left;
+}
+#holic_ibox img{
+	width:100%;
+}
+#holic_tbox{
+	width:45%; margin:5%; float:left; margin-bottom:80px;
+}
+#holic_tit{
+	font:bold 1.250em "Noto Sans KR"; color:#666; margin-bottom:25px;
+}
+#holic_txt{
+	font:normal 1.000em/28px "Noto Sans KR"; color:#999; text-align:justify; margin-bottom:35px;
+}
+#holic_btn{
+	width:150px; box-sizing:border-box; text-align:center;
+	border:solid 2px #999; border-radius:20px; padding:10px 20px;
+}
+#holic_btn a{
+	font:bold 0.750em "Noto Sans"; color:#000;
+}
+
+/* 커뮤니티 영역 속성 */
+#community_wrap{
+	width:100%; min-height:200px; float:left; background:#f6f6f6;
+}
+#community_inner{
+	width:1200px; margin:80px auto;
+}
+#com_li{
+	width:92%; margin:20px 4% 80px; float:left;
+}
+#com_li ul{
+	width:100%;
+}
+#com_li li{
+	width:32%; float:left; margin-right:2%;
+}
+#com_li li:last-child{
+	margin-right:0;
+}
+.com_li_ibox{
+	width:100%; height:200px; text-align:center; background:#fff; float:left; overflow:hidden;
+}
+.com_li_ibox img{
+	height:100%;
+}
+.com_li_tbox{
+	width:100%; height:87px; background:#fff; float:left; box-shadow:0 1px 2px rgba(0,0,0,.1);
+}
+.com_li_tcon{
+	width:92%; box-sizing:border-box; padding:5%; padding-bottom:8%; float:left;
+}
+.com_sub_tit{
+	font:normal 0.688em/20px "Noto Sans"; color:#a87d4f;
+}
+.com_tit{
+	font:normal 1.000em "Noto Sans";
+}
+.com_li_tbox>p{
+	width:7%; height:100%; box-sizing:border-box; border-left:solid 1px #eee; float:left; text-align:center;
+}
+.com_li_tbox>p a{
+	font:normal 1.000em/87px "Noto Sans"; color:#000;
+}
+
+#com_wrap{
+	width:100%; min-height:200px; float:left;
+}
+#com_inner{
+	width:1200px; margin:80px auto;
+}
+table{
+	width:900px; height:320px; float:left; position:relative; top:20px; left:50%; margin-left:-450px; margin-bottom:80px;
+}
+tr{
+	width:100%; height:40px; font:normal 1em/40px "Noto Sans KR"; color:#777;
+}
+.t_tit{
+	width:60%; text-indent:10px;
+}
+.t_name{
+	width:25%; text-align:center;
+}
+.t_date{
+	width:15%; text-align:right;
+}
+
+/* 하단 영역 속성 */
+footer{
+	width:100%; height:400px; background:#272727; float:left;
+}
+#footer_top_list{
+	width:1200px; height:86%; margin:0 auto; box-sizing:border-box; padding:3%;
+}
+#footer_top_list a{
+	text-decoration:none; font:normal 0.875em/24px "Noto Sans"; color:#777;
+}
+#footer_top_list ul{
+	width:100%; height:100%;
+}
+#footer_top_list>ul>li{
+	width:25%; height:100%; float:left;
+}
+#footer_top_list>ul>li:last-child .ftli_txt{
+	width:100%;
+}
+.ftli_tit{
+	width:100%; height:70px; float:left; font:bold 0.875em "Noto Sans"; color:#fff;
+}
+.ftli_txt{
+	width:85%; font:normal 1em/24px "Noto Sans KR"; text-align:justify; color:#777; margin-bottom:30px; float:left;
+}
+#admin{
+	font:normal 0.875em/24px "Noto Sans"; color:#777; float:left;
+}
+#admin b{
+	font-weight:bold;
+}
+#ftit_list li{
+	height:30px; border-bottom:solid 1px rgba(119,119,119,.3); margin-bottom:5px;
+}
+#ftit_list li:last-child{
+	border:none;
+}
+#tweets{
+	width:90%; font:normal 0.875em/30px "Noto Sans KR"; color:#777;
+}
+#fimg_list li{
+	width:75px; height:75px; float:left; margin-bottom:20px; margin-right:20px; overflow:hidden;
+}
+#fimg_list li:nth-child(3n){
+	margin-right:0;
+}
+#fimg_list img{
+	height:100%;
+}
+#footer_bottom_wrap{
+	width:100%; height:60px; background:#242424;
+}
+#footer_bottom_inner{
+	width:1200px; height:100%; margin:0 auto; position:relative; top:0; left:0;
+}
+#copyright{
+	font:normal 1em/24px "Noto Sans"; color:#999; position:absolute; top:50%; left:20px; margin-top:-12px;
+}
+#fbottom_list{
+	width:140px; height:26px; position:absolute; top:50%; right:20px; margin-top:-13px;
+}
+#fbottom_list ul{
+	width:100%; height:100%;
+}
+#fbottom_list li{
+	width:19%; height:100%; float:left; border-radius:50%; margin-right:8%;
+}
+#fbottom_list li:first-child{
+	background:url("/clamp_/images/social_icon.png") no-repeat 0 0 #333; background-size:cover;
+}
+#fbottom_list li:nth-child(2){
+	background:url("/clamp_/images/social_icon.png") no-repeat 0 -26px #333; background-size:cover;
+}
+#fbottom_list li:nth-child(3){
+	background:url("/clamp_/images/social_icon.png") no-repeat 0 -52px #333; background-size:cover;
+}
+#fbottom_list li:last-child{
+	background:url("/clamp_/images/social_icon.png") no-repeat 0 -81px #333; background-size:cover; margin:0;
+}
+
+
+
+@media screen and (max-width:1200px){
+	#header_inner, #clamp_writer_inner, #clamp_about_inner, #clamp_book_inner, .con_img_last_inner, #tsubasa_inner,
+	#tsubasa_toon_inner, #holic_inner, #community_inner, #com_inner, #footer_top_list, #footer_bottom_inner{
+		width:98%;
+	}
+}
+
+@media screen and (max-width:980px){
+	#writer_list li{
+		width:50%;
+	}
+	#footer_top_list{
+		padding-top:5%;
+	}
+	#footer_top_list>ul>li{
+		width:33.3%;
+	}
+	#footer_top_list>ul>li:last-child{
+		display:none;
+	}
+}
+
+@media screen and (max-width:768px){
+	body{
+		font-size:14px;
+	}
+	#logo{
+		left:20px;
+	}
+	#gnb{
+		width:438px;
+	}
+	#clamp_about_text{
+		height:120px; overflow-y:hidden; white-space:pre-line;
+	}
+	#tsubasa_inner div, #holic_inner div{
+		width:90%; margin-left:5%;
+	}
+	#holic_ibox{
+		margin-bottom:30px;
+	}
+	table{
+		width:96%; left:2%; margin-left:0;
+	}
+	.con_img_btn{
+		width:120px; 
+	}
+	#tsu_btn, #holic_btn{
+		margin:0 auto;
+	}
+}
+
+@media screen and (max-width:640px){
+	body{
+		font-size:12px;
+	}
+	#logo{
+		width:130px; margin-top:-14px;
+	}
+	#gnb{
+		width:375px;
+	}
+	#com_li li{
+		width:48%; margin-right:0;
+	}
+	#com_li li:first-child{
+		margin-right:4%;
+	}
+	#com_li li:last-child{
+		display:none;
+	}
+	footer{
+		height:350px;
+	}
+	#footer_top_list>ul>li{
+		width:49.5%;
+	}
+	#footer_top_list>ul>li:nth-child(2){
+		display:none;
+	}
+}
+
+@media screen and (max-width:480px){
+	
+}
+

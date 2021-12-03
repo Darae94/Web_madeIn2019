@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+		Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>index</title>
+  
+	<link rel="stylesheet" type="text/css" href="/liivon/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/liivon/css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+
+	<meta name="description" content="">
+	<meta name="author" content="Administrator">
+
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	
+	<script>	//공지사항 없애기
+		
+		var $popupWrap;
+		
+		$(document).ready(function(){
+			
+			$popupWrap=$("#popup_wrap");
+			
+			$popupWrap.bind("click",onPopupHide);
+			$popupWrap.children().bind("click",onPopupHide);
+			
+		})
+		
+		function onPopupHide(){
+						
+			$popupWrap.hide();
+			
+		}
+		
+	</script>
+
+</head>
+
+<body>
+
+	<!-- 포트폴리오 공지 -->
+	<div id="popup_wrap">
+		<div id="popup">
+			<p id="popup_tit">포트폴리오 제작 중입니다.</p>
+			<p id="popup_txt">
+				사용된 이미지 및 콘텐츠의 저작권은 각 출처에 있습니다.<br/>
+				상업적 목적으로 만들어지지 않았습니다.
+			</p>
+		</div>
+	</div>
+	
+	<!-- 스킵메뉴 -->
+	<ul id="skip">
+		<li><a href="#" title="상단바로가기">상단</a></li>
+		<li><a href="#" title="본문바로가기">본문</a></li>
+		<li><a href="#" title="하단바로가기">하단</a></li>
+	</ul>
+	
+	
+	
+	<header id="hwrap">
+		<div id="header_inner">
+			<div id="header_top">
+				<h2 class="hidden">상단메뉴</h2>
+				<h2 id="bank_logo">
+					<a href="#" title="국민은행 홈페이지로 이동">
+						<img src="/liivon/images/kb_logo.png" alt="KB국민은행" />
+					</a>
+				</h2>
+				
+				
+				<div id="header_util">
+					<ul>
+						<li><a href="#" title="해당 페이지로 이동">로그인</a></li>
+						<li><a href="#" title="해당 페이지로 이동">공인중개사전용관</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div id="header_bottom">
+				<h1 id="logo">
+					<a href="#" title="리브온으로 이동">
+						<img src="/liivon/images/w_liivon_logo.png" alt="KB부동산 liiv on">
+					</a>
+				</h1>
+				
+				
+				<nav id="menu">
+					<h2 class="hidden">메인메뉴</h2>
+					<ul id="menu_li">
+						<li><a href="#" title="해당 페이지로 이동">매물/시세</a></li>
+						<li><a href="#" title="해당 페이지로 이동">분양</a></li>
+						<li><a href="#" title="해당 페이지로 이동">경매</a></li>
+						<li><a href="#" title="해당 페이지로 이동">대출</a></li>
+						<li><a href="#" title="해당 페이지로 이동">뉴스/자료실</a></li>
+						<li><a href="#" title="해당 페이지로 이동">상권분석</a></li>
+						<li><a href="#" title="해당 페이지로 이동">MY부동산</a></li>
+					</ul>
+				</nav>
+				
+				<div id="ham">
+					<a href="#"><img src="/liivon/images/ham_menu.png" alt="메뉴 보기" /></a>
+				</div>
+				
+				
+				<p id="search">
+					<h2 class="hidden">검색창</h2>
+					<a href="#" title="검색하기"></a>
+				</p>
+			</div>
+		</div>
+	</header>
+	
+	<div id="visual_wrap">
+		<div id="visual_inner">
+			<a id="prev_btn" href="#" title="이전 이미지">&lt;</a>
+			<a id="next_btn" href="#" title="다음 이미지">&gt;</a>
+		</div>
+	</div>
+	
+	<div id="contents_wrap">
+		<div id="contents_inner">
+			<div id="contents01">
+				<h2 class="hidden">메인 박스</h2>
+				<ul>
+					<li>
+						<section id="box01" class="box_wrap">
+							<p class="title01">교통 소요시간</p>
+							<p class="text01">대중교통, 자가용,</br>도보시간으로</br>매물/시세를 찾아보세요</p>
+						</section>
+					</li>
+					
+					<li>
+						<section id="box02" class="box_wrap">
+							<p class="title02">지역</p>
+							<p class="text02">평소 관심 지역으로</br>매물/시세를 찾아보세요</p>
+						</section>
+					</li>
+					
+					<li>
+						<section id="box03" class="box_wrap">
+							<p class="title02">지하철</p>
+							<p class="text02">전국 지하철 노선도로</br>매물/시세를 찾아보세요</p>
+						</section>
+					</li>
+					
+					<li>
+						<section id="box04" class="box_wrap">
+							<p class="title02">지도</p>
+							<p class="text02">지도에서 직접</br>매물/시세를 찾아보세요</p>
+						</section>
+					</li>
+				</ul>
+			</div>
+			
+			<div id="contents02">
+				<h2 class="hidden">지역별 부동산 관심 통계</h2>
+				<p id="int_tit"><span>영등포구</span>의 이런 단지는 어떠세요?</p>
+				<p id="int_sub">KB시세 2019.04.19기준｜단위:만원</p>
+				<section class="con_inner" id="con01">
+					<p class="int_con_tit">영등포구</p>
+					<p class="int_con_sub">월간 아파트 시세 변동 추이 (1㎡당 시세)</p>
+					<a href="#" title="해당 페이지로 이동"><input id="int_con_btn" type="button" value="통계자료 자세히 보기 ▶" /></a>
+					<div id="int_graph">
+					</div>
+				</section>
+				<section class="con_inner">
+					<p class="int_con_tit">영등포푸르지오</p>
+					<p class="int_con_sub">서울특별시 영등포구 영등포동</p>
+					<select id="int_con_li">
+						<option>85.25/59.91㎡</option>
+						<option>100.88/73.13㎡</option>
+						<option>109.8/79.77㎡</option>
+						<option>115.8A/84.84㎡</option>
+						<option>115.86B/84.9㎡</option>
+					</select>
+					<table id="int_con_t">
+						<tr>
+							<th colspan="2">매매가</th>
+							<th colspan="2">전세가</th>
+							<th colspan="2">월세가</th>
+						</tr>
+						<tr>
+							<td class="t_text">하위평균가</td>
+							<td class="t_text">상위평균가</td>
+							<td class="t_text">하위평균가</td>
+							<td class="t_text">상위평균가</td>
+							<td class="t_text">보증금</td>
+							<td class="t_text">월세</td>
+						</tr>
+						<tr>
+							<td class="price">65,500</td>
+							<td class="price">74,000</td>
+							<td class="price">36,000</td>
+							<td class="price">38,000</td>
+							<td class="price">5,000</td>
+							<td class="price">95~108</td>
+						</tr>
+						<tr>
+							<td class="tfooter" colspan="2">매매 5</td>
+							<td class="tfooter" colspan="2">전세 1</td>
+							<td class="tfooter" colspan="2">월세 0</td>
+						</tr>
+					</table>
+					<a href="#" title="해당 페이지로 이동"><input id="int_table_btn" type="button" value="아파트 종합 보고서 ▶" /></a>
+					<div class="t_paging">
+						<p id="t_prev_btn"><a href="#" title="이전"><</a></p>
+						<p id="t_page"><span>1</span> / 5</p>
+						<p id="t_next_btn"><a href="#" title="다음">></a></p>
+					</div>
+				</section>
+			</div>
+			
+			<div id="contents03">
+				<section id="like">
+					<h2 class="hidden">청약 목록</h2>
+					
+					<div class="con03_tit">
+						<ul>
+							<li><a id="list01" href="#">인기 분양/청약단지</a></li>
+							<li><a id="list02" href="#">신혼 부부 맞춤단지</a></li>
+						</ul>
+					</div>
+					
+					<div id="like_list">
+						<ul id="like_list_01">
+							<li><a href="#">
+								<img src="/liivon/images/snuploadfile_201904013781828.jpg" alt="DMC센트럴아이파크" />
+								<p class="like_icon">청약중</p><p class="like_tit">DMC센트럴아이파크</p>
+								<p class="like_txt">서울특별시 서대문구 남가좌동 369-10번지 일대</p>
+								<p class="like_price">분양가 미정</p>
+							</a></li>
+							
+							<li><a href="#">
+								<img src="/liivon/images/snuploadfile_201812315335864.jpg" alt="DMC센트럴아이파크" />
+								<p class="like_icon">청약중</p><p class="like_tit">e편한세상상도노빌리</p>
+								<p class="like_txt">서울특별시 동작구 상도동 36-1</p>
+								<p class="like_price">분양가 미정</p>
+							</a></li>
+							
+							<li><a href="#">
+								<img src="/liivon/images/snuploadfile_201904014088382.jpg" alt="DMC센트럴아이파크" />
+								<p class="like_icon">청약중</p><p class="like_tit">신촌숲아이파크 행복</p>
+								<p class="like_txt">서울특별시 마포구 신수동 93-102번지 일대</p>
+								<p class="like_price">분양가 미정</p>
+							</a></li>
+						</ul>
+					</div>
+				</section>
+				
+				<section id="quick">
+					<h2 class="hidden">계산 목록</h2>
+					<div id="qlist">
+						<ul>
+							<li><a href="#">부동산 세금계산기</a></li>
+							<li><a href="#">빠른 시세조회</a></li>
+							<li><a href="#">대출상환 스케줄조회</a></li>
+							<li><a href="#">대출한도 / 금리 조회</a></li>
+							<li><a href="#">부동산 맞춤 설계</a></li>
+						</ul>
+					</div>
+				</section>
+			</div>
+			
+			<div id="contents04">
+				<section id="hotissue">
+					<h2 class="con04_tit">부동산 핫이슈</h2>
+					
+					<div id="con04_issue">
+						<ul>
+							<li><a href="#">
+								<img class="con04_img" src="/liivon/images/201904_list18619697147924976.jpg" alt="다주택자">
+								<p class="con04_txt01">기로에 선 다주택자, 매매보다 증여? 임대등록?</p>
+								<p class="con04_sub01">KB부동산 Liiv ON2019.04.23</p>
+							</a></li>
+							
+							<li><a href="#">
+								<img class="con04_img" src="/liivon/images/201904.png" alt="부동산 사기">
+								<p class="con04_txt01">부동산 전세 사기 당하지 않으려면?</p>
+								<p class="con04_sub01">KB부동산 Liiv ON2019.04.22</p>
+							</a></li>
+							
+							<li><a href="#">
+								<p class="con04_txt02">[4월 4주차] 강남 일원, 서초 방배 등 재건축 단지 견본주택 오픈</p>
+								<p class="con04_sub02">KB부동산 Liiv ON2019.04.22</p>
+							</a></li>
+							
+							<li><a href="#">
+								<p class="con04_txt02">[강남 재건축 시장 ②] 강남3구 입성. 올봄 청약시장이 기회일까?</p>
+								<p class="con04_sub02">KB부동산 Liiv ON2019.04.22</p>
+							</a></li>
+						</ul>
+					</div>
+					
+					<p class="con04_more"><a href="#">더보기▶</a></p>
+				</section>
+				
+				<section id="column">
+					<h2 class="con04_tit">전문가 칼럼</h2>
+					
+					<div id="con04_col">
+						<ul>
+							<li><a href="#">
+								<img class="con04_img" src="/liivon/images/201901_human02.jpg" alt="조수연">
+								<p class="con04_txt01">노후 건물 수익성 높이는 '밸류애드' 전략은 어떻게?</p>
+								<p class="con04_sub01">2019.04.17 | 조수연</p>
+							</a></li>
+							
+							<li><a href="#">
+								<img class="con04_img" src="/liivon/images/201901_human01.jpg" alt="김병주">
+								<p class="con04_txt01">저평가된 수익형 부동산 투자 시 체크포인트</p>
+								<p class="con04_sub01">2019.04.10 | 김병주</p>
+							</a></li>
+						</ul>
+					</div>
+					
+					<p class="con04_more"><a href="#">더보기▶</a></p>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<footer id="fwrap">
+		<div id="footer_inner">
+			<h1 id="flogo">
+			</h1>
+			
+			<h3 class="hidden">하단메뉴</h3>
+			<div id="footer">
+				<ul id="fmenu">
+					<li><a href="#">고객센터</a></li>
+					<li><a href="#">이용안내</a></li>
+					<li><a href="#">이용약관</a></li>
+					<li><a href="#">책임한계와 법적고지</a></li>
+					<li><a href="#">사이트맵</a></li>
+					<li><a href="#">보안프로그램</a></li>
+					<li><a href="#">개인정보처리방침</a></li>
+					<li><a href="#">지점안내</a></li>
+				</ul>
+				
+				<h3 class="hidden">카피라이터</h3>
+				<div id="info_copy">
+					<p id="info01">부동산금융상담팀</p>
+					<p id="info02">1644-9571</p>
+					<p id="info03">채팅상담</p>
+					<p id="copy">Copyright Kookmin Bank. All Right Reserved</p>
+				</div>
+			</div>
+			
+			<h2 class="hidden">패밀리사이트</h2>
+			<div id="family_site">
+				<a href="#">Family Site</a>
+				<!--<ul>
+					<li role="option"><a href="#">KB금융그룹</a></li>
+					<li role="option"><a href="#">KB증권</a></li>
+					<li role="option"><a href="#">KB손해보험</a></li>
+					<li role="option"><a href="#">KB국민카드</a></li>
+					<li role="option"><a href="#">KB생명보험</a></li>
+					<li role="option"><a href="#">KB자산운용</a></li>
+					<li role="option"><a href="#">KB캐피탈</a></li>
+					<li role="option"><a href="#">KB저축은행</a></li>
+					<li role="option"><a href="#">KB부동산신탁</a></li>
+					<li role="option"><a href="#">KB인베스트먼트</a></li>
+					<li role="option"><a href="#">KB신용정보</a></li>
+					<li role="option"><a href="#">KB데이타시스템</a></li>
+					<li role="option"><a href="#">KB경영연구소</a></li>
+				</ul>-->
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>
+

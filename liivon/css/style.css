@@ -1,0 +1,628 @@
+/*@font-face{
+	font-family: 'Noto Sans', sans-serif;
+}
+@font-face{
+	font-family: 'Noto Sans KR', sans-serif;
+}*/
+@font-face{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+.hidden{
+	width:1px; height:1px; font-size:0; line-height:0; position:absolute; top:0; left:0;
+}
+
+
+
+/*popup*/
+div#popup_wrap{
+	width:100%; height:100%; position:fixed; top:0; left:0; background:rgba(0,0,0,0.6); z-index:99;
+}
+div#popup{
+	width:400px; height:300px; position:fixed; top:150px; left:200px;
+	background:url("/clamp/images/info.png")no-repeat center 20% #e0d5c6; background-size: 20%;
+}
+p#popup_tit{
+	font:bold 1.500em "Nanum Gothic"; margin-top:38%; text-align:center; color:#000;
+}
+p#popup_txt{
+	width:85%; margin:20px auto; font:normal 0.875em/24px "Nanum Gothic"; text-align:center; color:#000;
+}
+
+
+
+/* skip */
+ul#skip li a{
+	width:1px; height:1px; font-size:0; line-height:0; position:absolute; top:0; left:0; text-decoration:none;
+}
+ul#skip li a:focus{
+	width:100%; height:30px; font-size:16px; line-height:30px; color:#ffffff; background:#000000; text-align:center;
+}
+
+
+
+/* header */
+header#hwrap{
+	width:100%; height:110px; float:left; border-bottom:solid 1px #d3d2d7;
+}
+div#header_inner{
+	width:1178px; height:100%; margin:0 auto;
+}
+
+div#header_top{
+	width:100%; height:35px; float:left; position:relative; top:0; left:0;
+}
+h2#bank_logo{
+	width:103px; height:100%; position:absolute; top:9px; left:0;
+}
+div#header_util{
+	width:150px; height:15px; position:absolute; top:15px; right:0;
+}
+div#header_util ul{
+	width:100%; height:100%;
+}
+div#header_util ul li{
+	 height:100%; float:left;
+}
+div#header_util ul li:first-child{
+	padding-right:12px; border-right:solid 1px #676662;
+}
+div#header_util ul li:last-child{
+	text-indent:10px;
+}
+div#header_util ul li a{
+	font:normal 0.750em/20px "Nanum Gothic"; text-decoration:none; color:#676662; line-height:15px;
+}
+
+div#header_bottom{
+	width:100%; height:75px; float:left; position:relative; top:0; left:0;
+}
+h1#logo{
+	width:121px; height:36px; position:absolute; bottom:29px; left:0;
+}
+nav#menu{
+	width:900px; height:100%; position:absolute; top:15px; left:200px;
+}
+nav#menu ul#menu_li{
+	width:100%; height:30px;
+}
+ul#menu_li li{
+	float:left; margin-right:30px; padding-right:30px;
+}
+ul#menu_li li a{
+	font:bold 1.063em/30px "Nanum Gothic"; text-decoration:none; color:#000000;
+}
+div#ham{
+	width:32px; height:21px; display:none; position:absolute; right:0; top:20px;
+}
+p#search{
+	width:150px; height:35px; background-color:#f6f7fb; position:absolute; right:0; bottom:26px;
+	border-radius:15px; background-image:url("/liivon/images/w_ico_gnb_search_s.png");
+	background-repeat:no-repeat; background-position:120px center;
+}
+
+
+
+/* visual */
+div#visual_wrap{
+	width:100%; height:135px; float:left; box-shadow:3px 3px 5px #d3d2d7;
+}
+div#visual_inner{
+	width:1178px; height:100%; margin:0 auto; background:url("/liivon/images/w_main_visual03.jpg")no-repeat;
+	position:relative; top:0; left:0; background-position:center left; background-size:cover;
+}
+div#visual_inner a{
+	font:normal 2em/40px "Nanum Gothic"; text-decoration:none; color:#000000; display:block;
+	position:absolute; width:20px; height:40px; 
+}
+a#prev_btn{
+	top:50%; margin-top:-20px; left:0;
+}
+a#next_btn{
+	top:50%; margin-top:-20px; right:0;
+}
+
+
+
+/* contents */
+div#contents_wrap{
+	width:100%; min-height:1500px; float:left;
+}
+div#contents_inner{
+	width:1178px; min-height:1500px; margin:0 auto;
+}
+
+div#contents01{
+	width:100%; height:317px; margin:60px 0; float:left;
+}
+div#contents01 ul{
+	width:100%; height:100%;
+}
+div#contents01 ul li{
+	width:22%; height:100%; float:left; margin-right:4%;
+}
+div#contents01 ul li:last-child{
+	margin-right:0;
+}
+.box_wrap{
+	width:100%; height:100%; float:left; padding:30px; box-sizing:border-box;
+	background-repeat:no-repeat; border-radius:12px;
+}
+section#box01{
+	background-color:#223f83; background-image:url("/liivon/images/w_ico_main_box01.png"); background-position:left 98%;
+}
+section#box02{
+	background-color:#f6d727; background-image:url("/liivon/images/w_ico_main_box02.png"); background-position:98% 98%;
+}
+section#box03{
+	background-color:#feae11; background-image:url("/liivon/images/w_ico_main_box03.png"); background-position:98% 98%;
+}
+section#box04{
+	background-color:#d1cfd0; background-image:url("/liivon/images/w_ico_main_box04.png");
+	background-position:98% 98%;
+}
+.title01{
+	font:bold 1.500em "Nanum Gothic"; color:#ffffff; margin-bottom:20px;
+}
+.title02{
+	font:bold 1.500em "Nanum Gothic"; color:#5b4605; margin-bottom:20px;
+}
+.text01{
+	font:normal 1em/24px "Nanum Gothic"; color:#ffffff;
+}
+.text02{
+	font:normal 1em/24px "Nanum Gothic"; color:#5b4605;
+}
+
+
+div#contents02{
+	width:100%; min-height:470px; background:#f0f2f8; padding:45px; box-sizing:border-box;
+	margin-bottom:60px; float:left; border-radius:6px; position:relative; top:0; left:0;
+}
+p#int_tit{
+	width:100%; height:32px; text-align:center; float:left; margin-bottom:50px;
+	font:normal 2em/32px "Nanum Gothic";
+}
+p#int_tit span{
+	font-weight:bold; color:#2e51b5;
+}
+p#int_sub{
+	font:normal 0.750em "Nanum Gothic"; position:absolute; top:20px; right:45px; color:#797985;
+}
+section#con01{
+	margin-right:4%;
+}
+input#int_con_btn, select#int_con_li{
+	width:150px; height:35px; position:absolute; top:10px; right:0;
+	font:normal 0.875em/35px "Nanum Gothic";
+}
+div#int_graph{
+	width:100%; height:245px; background:url("/liivon/images/graph.png")center center no-repeat; margin-top:10px;
+	text-align:center; line-height:245px; background-size:contain;
+}
+table#int_con_t{
+	width:100%; height:193px; background:#ffffff; margin:10px 0 5px;
+}
+table#int_con_t tr{
+	width:100%; height:47px; text-align:center;
+}
+table#int_con_t tr th{
+	font:bold 1em/47px "Nanum Gothic";
+}
+table#int_con_t tr th, table#int_con_t tr td{
+	border:solid 1px #f0f2f8; box-sizing:border-box; width:16%;
+}
+input#int_table_btn{
+	width:153px; height:40px; border:solid 1px #666666; box-sizing:border-box; float:left; margin-top:7px;
+	text-decoration:none; font:normal 0.750em/35px "Nanum Gothic"; color:#666666; border-radius:15px;
+}
+
+div.t_paging p{
+	float:left;
+}
+div.t_paging p a{
+	text-decoration:none; font:normal 0.875em/14px "Nanum Gothic"; color:#666666;
+}
+div.t_paging p#t_page{
+	width:32px; font:normal 0.875em/14px "Nanum Gothic"; color:#666666; margin:0 40px;
+}
+div.t_paging p#t_page span{
+	font-weight:bold; color:#000000;
+}
+.con_inner{
+	width:48%; min-height:300px; float:left; position:relative; top:0; left:0;
+}
+.int_con_tit{
+	font:normal 1.250em "Nanum Gothic"; color:#000000; margin-bottom:5px;
+}
+.int_con_sub{
+	font:normal 0.875em "Nanum Gothic"; color:#878785;
+}
+.t_text{
+	font:normal 0.813em/47px "Nanum Gothic";
+}
+.price{
+	font:bold 0.813em/47px "Nanum Gothic";
+}
+.tfooter{
+	font:normal 1em/47px "Nanum Gothic";
+}
+.t_paging{
+	width:130px; height:14px; float:right; margin-top:14px;
+}
+
+
+div#contents03{
+	width:100%; min-height:286px; margin-bottom:75px; float:left;
+}
+
+section#like{
+	width:74%; height:286px; float:left; margin-right:6%;
+}
+div.con03_tit{
+	width:350px; height:29px;
+}
+div.con03_tit ul{
+	width:100%; height:100%;
+}
+div.con03_tit ul li{
+	width:50%; height:100%; float:left;
+}
+div.con03_tit ul li:first-child{
+	 border-right:solid 1px #666666; box-sizing:border-box;
+}
+div.con03_tit ul li:last-child{
+	text-indent:10px;
+}
+div.con03_tit ul li a{
+	text-decoration:none; font:normal 1.250em/29px "Nanum Gothic"; color:#666666;
+}
+div.con03_tit ul li a:hover{
+	border-bottom:solid 2px #4063bf; padding-bottom:5px; color:#4063bf;
+}
+div#like_list{
+	width:100%; height:220px; margin-top:20px;
+}
+div#like_list ul{
+	width:100%; height:100%;
+}
+div#like_list ul li{
+	width:32%; height:100%; margin-right:2%; float:left;
+}
+div#like_list ul li:last-child{
+	margin-right:0;
+}
+div#like_list ul li a{
+	text-decoration:none;
+}
+div#like_list ul li img{
+	width:100%; height:125px; margin-bottom:20px;
+}
+p.like_icon{
+	width:16%; height:22px; margin-right:4%; border-radius:15px; background:#ffa600;
+	font:normal 0.688em/22px "Nanum Godic"; color:#ffffff; text-align:center; float:left;
+}
+p.like_tit{
+	width:80%; height:22px; font:bold 1.125em/22px "Nanum Godic"; color:#000000; float:left; margin-bottom:8px;
+}
+p.like_txt{
+	width:100%; height:15px; font:normal 0.813em/15px "Nanum Godic"; color:#888888; float:left;
+	margin-bottom:12px; overflow:hidden;
+}
+p.like_price{
+	font:bold 1em/16px "Nanum Godic"; color:#223f84;
+}
+
+section#quick{
+	width:20%; min-height:286px; float:right;
+}
+div#qlist{
+	width:100%; min-height:286px; border-radius:10px; border:solid 1px #dddddd; box-sizing:border-box;
+}
+div#qlist ul{
+	width:100%; height:286px;
+}
+div#qlist ul li{
+	width:100%; height:20%; padding:20px 20px 20px 30px; border-bottom:solid 1px #dddddd; box-sizing:border-box;
+	background:url("/liivon/images/w_btn_main_more.gif")90% center no-repeat; float:left;
+}
+div#qlist ul li:last-child{
+	border:none;
+}
+div#qlist ul li a{
+	text-decoration:none; color:#000000;
+}
+
+div#contents04{
+	width:100%; min-height:271px; margin-bottom:75px; float:left;
+}
+section#hotissue{
+	width:65%; min-height:271px; margin-right:5%; float:left;
+	position:relative; top:0px; left:0px;
+}
+section#column{
+	width:30%; min-height:271px; float:left; position:relative; top:0px; left:0px;
+}
+div#con04_issue, div#con04_col{
+	width:100%; height:233px;
+}
+div#con04_issue ul, div#con04_col ul{
+	width:100%; height:100%;
+}
+div#con04_issue ul li a, div#con04_col ul li a, p.con04_more a{
+	text-decoration:none; font:normal 1em "Nanum Godic"; color:#000000;
+}
+div#con04_issue ul li{
+	width:45%; height:50%; padding:20px 0; box-sizing:border-box; float:left; margin-right:10%;
+}
+div#con04_issue ul li:first-child, div#con04_issue ul li:nth-child(2), div#con04_col ul li:first-child{
+	border-bottom:solid 1px #d6d6de;
+}
+div#con04_issue ul li:nth-child(2n){
+	margin-right:0;
+}
+div#con04_col ul li{
+	width:100%; padding:20px 0; box-sizing:border-box; float:left;
+}
+.con04_tit{
+	width:100%; height:23px; padding-bottom:15px; border-bottom:solid 1px #d6d6de;
+	font:normal 1.250em/23px "Nanum Godic"; color:#3f63bf;
+}
+.con04_img{
+	width:26%; height:76px; float:left; margin-right:4%;
+}
+.con04_txt01{
+	width:70%; height:40px; float:left; margin-bottom:15px;
+}
+.con04_sub01{
+	width:70%; height:20px; float:left; font-size:0.750em; color:#898989;
+}
+.con04_txt02{
+	width:100%; height:40px; float:left; margin-bottom:15px;
+}
+.con04_sub02{
+	width:100%; height:20px; float:left; font-size:0.750em; color:#898989;
+}
+.con04_more{
+	width:64px; height:15px; position:absolute; top:10px; right:0;
+}
+p.con04_more a{
+	color:#898989;
+}
+
+
+
+/* footer */
+footer#fwrap{
+	width:100%; min-height:117px; float:left; border-top:solid 1px #dedede;
+}
+div#footer_inner{
+	width:1178px; height:117px; margin:0 auto; padding:20px 0; box-sizing:border-box;
+}
+h1#flogo{
+	width:105px; height:32px; margin:5px 28px 20px 0; float:left;
+	background:url("/liivon/images/w_bg_logo_footer.png")center no-repeat;
+}
+div#footer{
+	width:600px; height:76px; float:left;
+}
+ul#fmenu{
+	width:100%; height:22px;
+}
+ul#fmenu li{
+	padding-right:5px; text-indent:5px; font:normal 0.750em/22px "Nanum Godic";
+	border-right:solid 1px #dddddd; float:left; margin-bottom:4px;
+}
+ul#fmenu li:first-child{
+	text-indent:0;
+}
+ul#fmenu li:last-child{
+	padding-right:0; border:none;
+}
+ul#fmenu li a{
+	text-decoration:none; color:#000000;
+}
+div#info_copy{
+	width:100%; height:54px;
+}
+div#info_copy p{
+	font:normal 0.750em/27px "Nanum Godic"; float:left; 
+}
+p#info01{
+	width:96px; height:27px; margin-right:10px;
+}
+p#info02{
+	width:86px; height:27px; text-indent:20px; margin-right:10px; background:url("/liivon/images/w_ico_footer.png")no-repeat -1px -28px;
+}
+p#info03{
+	width:76px; height:27px; text-indent:20px; background:url("/liivon/images/w_ico_footer.png")no-repeat -104px -28px; margin-right:20px;
+}
+p#copy{
+	width:100%;
+}
+div#family_site{
+	width:130px; height:38px; border:solid 1px #dddddd; float:right; background:url("/liivon/images/w_ico_footer.png")no-repeat -135px 13px;
+}
+div#family_site a{
+	width:110px; height:100%; padding:0 10px; text-decoration:none; color:#666666; font:normal 0.875em/38px "Nanum Godic";
+}
+
+
+
+
+@media screen and (max-width:1200px){
+	div#header_inner, div#contents_inner, div#footer_inner{
+		width:98%;
+	}
+	div#visual_inner{
+		width:100%;
+	}
+}
+
+@media screen and (max-width:980px){
+	nav#menu{
+		width:60%;
+	}
+	ul#menu_li li{
+		margin-right:12px; padding-right:12px;
+	}
+	div#visual_inner{
+		background-position:10%;
+	}
+	div#contents01 ul li{
+		width:23.5%; margin-right:2%;
+	}
+	div#contents02{
+		padding:45px 20px;
+	}
+	div#contents03, div#contents04{
+		margin-bottom:40px;
+	}
+	section#like, section#quick, section#hotissue, section#column{
+		width:100%; min-height:50px; margin-bottom:20px;
+	}
+	div#qlist{
+		min-height:57px;
+	}
+	div#qlist ul{
+		height:57px;
+	}
+	div#qlist ul li{
+		width:20%; height:100%; border-bottom:none; border-right:solid 1px #dddddd; padding:20px 10px; background-position-x:95%;
+	}
+	div#con04_col{
+		height:116px;
+	}
+	div#con04_col ul li{
+		width:45%; margin-right:10%;
+	}
+	div#con04_col ul li:first-child{
+		border:none;
+	}
+	div#con04_col ul li:last-child{
+		margin-right:0;
+	}
+}
+
+@media screen and (max-width:768px){
+	body{
+		font-size:14px;
+	}
+	nav#menu{
+		width:80%; left:150px;
+	}
+	p#search{
+		width:100px; background-position:80% center;
+	}
+	div#visual_wrap{
+		height:90px; 
+	}
+	div#visual_inner{
+		background-size:contain;
+	}
+	div#contents01 ul li{
+		width:32%;
+	}
+	div#contents01 ul li:nth-child(3){
+		margin-right:0;
+	}
+	div#contents01 ul li:last-child, div#family_site{
+		display:none;
+	}
+	section.con_inner{
+		width:100%;
+	}
+	div#int_graph{
+		height:350px; margin-bottom:30px;
+	}
+	div.con03_tit ul{
+		width:315px;
+	}
+	div#qlist ul li:nth-child(3), div#qlist ul li:nth-child(4){
+		padding:0;
+	}
+	div#qlist ul li:nth-child(3) a, div#qlist ul li:nth-child(4) a{
+		display:block; margin:10px; width:50%; line-height:18px;
+	}
+	div#con04_issue ul li, div#con04_col ul li{
+		width:47.5%; margin-right:5%;
+	}
+	h1#flogo{
+		margin-right:56px;
+	}
+	p#copy{
+		width:250px;
+	}
+	div#footer{
+		width:550px;
+	}
+	div#footer_inner{
+		padding:20px;
+	}
+}
+
+@media screen and (max-width:640px){
+	header#hwrap{
+		height:65px; border:none;
+	}
+	div#header_top, nav#menu, div#visual_wrap, section#con01, section#quick{
+		display:none;
+	}
+	div#ham{
+		display:block;
+	}
+	p#search{
+		right:45px;
+	}
+	div#contents01{
+		margin-top:20px;
+	}
+	div#contents01, div#contents02, div#contents03, div#contents04{
+		margin-bottom:30px;
+	}
+	h1#flogo{
+		width:100%; margin-right:0; margin-bottom:10px; text-align:center;
+	}
+	div#footer_inner{
+		padding:10px;
+	}
+	div#footer{
+		text-align:center; margin-left:5%;
+	}
+	
+}
+
+@media screen and (max-width:480px){
+	div#contents01 ul li{
+		width:49%; margin-right:2%;
+	}
+	div#contents01 ul li:nth-child(2), div#like_list  ul#like_list_01 li:nth-child(2){
+		margin-right:0;
+	}
+	div#like_list ul#like_list_01 li{
+		width:47.5%; margin-right:5%;
+	}
+	div#contents01 ul li:nth-child(3), ul#like_list_01 li:nth-child(3), ul#fmenu{
+		display:none;
+	}
+	img.con04_img{
+		display:none;
+	}
+	.con04_txt01, .con04_sub01{
+		width:100%;
+	}
+	div#footer_inner{
+		padding:0px;
+	}
+	div#footer{
+		width:100%; margin:0;
+	}
+	div#info_copy{
+		width:100%; padding:0 20.3%; box-sizing:border-box;
+	}
+	p#info03{
+		margin:0;
+	}
+	p#copy{
+		width:100%; text-align:center;
+	}
+}

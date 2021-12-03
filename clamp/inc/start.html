@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+	     Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>CLAMP</title>
+	<meta name="description" content="">
+	<meta name="author" content="Administrator">
+	
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	 
+	<link rel="stylesheet" type="text/css" href="/clamp/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/clamp/css/common.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Noto+Sans&display=swap" rel="stylesheet">
+
+	<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="/clamp/js/swiper-4.5.0/dist/css/swiper.min.css">
+	<script src="/clamp/js/swiper-4.5.0/dist/js/swiper.min.js"></script>
+	
+	<style>
+	    html, body {
+	      position: relative;
+	      height: 100%;
+	    }
+	    body {
+	      font-size: 14px;
+	      color:#000;
+	      margin: 0;
+	      padding: 0;
+	    }
+	    .swiper-container {
+	      width: 100%;
+	      height: 100%;
+	      display:none;
+	    }
+	    .swiper-slide {
+	      text-align: center;
+	      font-size: 18px;
+	      background: url("/clamp/images/visual_bg00.png") no-repeat center top;
+	      /* Center slide text vertically */
+	      display: -webkit-box;
+	      display: -ms-flexbox;
+	      display: -webkit-flex;
+	      display: flex;
+	      -webkit-box-pack: center;
+	      -ms-flex-pack: center;
+	      -webkit-justify-content: center;
+	      justify-content: center;
+	      -webkit-box-align: center;
+	      -ms-flex-align: center;
+	      -webkit-align-items: center;
+	      align-items: center;
+	    }
+	</style>
+	
+	<!-- Initialize Swiper -->
+	<script>
+	    $(document).ready(function(){
+	    	
+	    	var swiper = new Swiper('.swiper-container', {
+		      pagination: {
+		        el: '.swiper-pagination',
+		      },
+		    });
+	    	
+	    })
+	</script>
+	
+	<script>	//헤더 영역 애니메이션 설정
+		
+		//변수 선언
+		var $headerWrap;		
+		var $mainMenu;
+		var $mainSub;
+		var $subMenuWrap;
+		var $subMenu;
+		var $hamMenu;
+		var $hamWrap;
+		var $ham;
+		var overNum;
+		var openHeight=110;
+		var closeHeight=50;
+		var isHamOpen=false;
+		
+		var textUrl;
+		var pageName;
+		
+		$(document).ready(function(){
+		
+			//변수 지정
+			$headerWrap=$("#header_wrap");
+			$mainMenu=$("#mainMenu a");
+			$subMenuWrap=$("#subMenu_wrap");
+			$subMenu=$(".subMenu");
+			$hamMenuBtn=$("#ham_menu");
+			$hamMenu=$("#ham_menu span");
+			$hamWrap=$("#ham_wrap");
+			$ham=$("#ham_list>ul>li");
+			
+			//each함수로 각각의 값 저장하도록 설정
+			$ham.each(function(HamSub,data){
+				
+				$(this).data("HamSub",false);
+				
+			})
+			
+			
+			//기본 설정
+			$subMenuWrap.hide();
+			$subMenu.hide();
+			$hamMenuBtn.css({"z-index":11});
+			$hamWrap.css({"z-index":10});
+			
+			
+			//메인 및 서브 구분하여 헤더 적용 변경
+			
+			textUrl=window.location.pathname
+			//alert(textUrl)
+			
+			pageName=textUrl.substring(7)
+			
+			if(pageName=="" || pageName=="index.php"){	//메인 적용 헤더 속성
+				
+				onHeaderOut();
+					
+				$headerWrap.bind("mouseenter",onHeaderOver);
+				$headerWrap.bind("mouseleave",onHeaderOut);
+				
+			}else if(pageName!="" || pageName!="index.php"){	//서브 적용 속성
+				
+				$headerWrap.bind("mouseleave",onMenuOut);
+				
+			}
+			
+			//이벤트 지정
+			$mainMenu.bind("mouseenter",onMenuOver);
+			$hamMenuBtn.bind("click",onHamMenu);
+			$ham.bind("click",onHamSub);
+		
+		})
+		
+		function onHeaderOver(){	//헤더 영역 올라오면 실행되는 함수
+		
+			if(isHamOpen==false){
+				
+				$headerWrap.css({"background":"#ffffff","border-bottom":"solid 3px #a87b4f"});
+				$headerWrap.children().eq(0).css({"border-bottom":"none"});
+				$mainMenu.css({"color":"#000000"});
+				$hamMenu.css({"background":"#000"});
+				$hamMenu.removeClass("main");
+				
+			}
+		
+		}
+		
+		function onHeaderOut(){		//헤더 영역 벗어나면 실행되는 함수
+		
+			if(isHamOpen==false){
+				
+				onMenuOut();
+				
+				$headerWrap.css({"background":"none","border-bottom":"none"});
+				$headerWrap.children().eq(0).css({"border-bottom":"solid 1px #919191"});
+				$mainMenu.css({"color":"#ffffff"});
+				$hamMenu.css({"background":"#fff"});
+				$hamMenu.addClass("main");
+			
+			}
+			
+		}
+		
+		function onHamMenu(){	//햄메뉴 클릭시 실행되는 함수
+			
+			if(isHamOpen==false){
+				
+				$hamMenu.css({"background":"#fff"});
+				$hamMenu.addClass("ham_over");
+				$hamWrap.show();
+				
+				isHamOpen=true;
+				
+			}else{
+				
+				$ham.data("HamSub",false);
+				$ham.children("p").removeClass("ham_selected");
+				$ham.css({"height":closeHeight})
+				$hamWrap.hide();
+				$hamMenu.removeClass("ham_over");
+				$hamMenu.css({"background":"#000"});
+				
+				isHamOpen=false;
+				
+			}
+			
+		}
+		
+		function onHamSub(){	//햄메뉴 서브메뉴 클릭시 실행되는 함수
+			
+			if($(this).data("HamSub")==false){
+				
+				$(this).children("p").addClass("ham_selected");
+				$(this).animate({"height":openHeight},300,"easeOutCubic");
+				
+				$(this).data("HamSub",true);
+				
+			}else{
+				
+				$(this).children("p").removeClass("ham_selected");
+				$(this).animate({"height":closeHeight},300,"easeOutCubic");
+				
+				$(this).data("HamSub",false);
+				
+			}
+			
+		}
+		
+		function onMenuOver(){		//메인메뉴 오버된 값 구하는 함수
+		
+			overNum=$mainMenu.index($(this));
+			
+			//alert(overNum)			
+			
+			onSubMenuShow(overNum);
+		
+		}
+		
+		function onSubMenuShow(selectMenu){		//서브메뉴 보여지는 함수
+		
+			$mainMenu.css({"color":"#000000"});
+			$mainMenu.eq(selectMenu).css({"color":"#a87b4f"});
+			
+			$subMenuWrap.hide();
+			$subMenu.hide();
+			$subMenu.children().hide();
+			$subMenuWrap.css({"border-top":"solid 3px #a87b4f"});
+			$subMenuWrap.stop();
+			$subMenuWrap.slideDown(200,"easeOutCubic",function(){
+				
+				$subMenu.show();
+				$subMenu.children().eq(selectMenu).show();
+				
+			});
+			//alert(selectMenu);
+		}
+		
+		function onMenuOut(){		//서브메뉴 사라지는 함수
+			
+			$mainMenu.css({"color":"#000000"});
+			$subMenu.hide();
+			$subMenu.children().hide();
+			$subMenuWrap.stop();
+			$subMenuWrap.slideUp(200,"easeOutCubic");
+			
+			//$mainMenu.css({"color":"#000"});
+			
+		}
+		
+	</script>
+	
+	<script>	//비주얼 배경 슬라이드 설정
+		
+		//변수 선언
+		var $visualWrap;
+		var $visual;
+		var $visualBg;
+		var bgNum;
+		var imgWidth;
+		var position;
+		var timer;
+		
+		$(window).load(function(){
+			
+			//변수 지정
+			$visualWrap=$("#visual_wrap")
+			$visual=$("#visual_bg");
+			$visualBg=$visual.children();
+			bgNum=$visualBg.size();
+			
+			onResizeSet();
+			$visual.children().last().prependTo($visual);
+			//alert(bgNum);
+			onSlideStart();
+			
+			$visualWrap.bind("mouseenter",onSlideStop);
+			$visualWrap.bind("mouseleave",onSlideStart);
+			$("#prev_btn").bind("click",onSlidePrev);
+			$("#next_btn").bind("click",onSlideNext)
+			
+		})
+		
+		$(window).resize(function(){
+			
+			onResizeSet();
+			
+		})
+		
+		function onResizeSet(){
+			
+			imgWidth=$visualWrap.innerWidth();
+			
+			$visual.css({"width":imgWidth*bgNum});
+			$visualBg.css({"width":imgWidth});
+			$visual.css({"left":-imgWidth});
+			
+		}
+		
+		function onSlideStart(){
+			
+			timer=setInterval(onSlideNext,2000);
+			
+		}
+		
+		function onSlideNext(){
+			
+			position=$visual.position().left;
+			
+			$visual.animate({"left":position-imgWidth},500,"easeOutExpo",function(){
+				
+				$visual.children().first().appendTo($visual);
+				$visual.css({"left":-imgWidth});
+				
+			});
+			
+		}
+		
+		function onSlidePrev(){
+			
+			position=$visual.position().left;
+			
+			$visual.animate({"left":position+imgWidth},500,"easeOutExpo",function(){
+				
+				$visual.children().last().prependTo($visual);
+				$visual.css({"left":-imgWidth});
+				
+			});
+			
+		}
+		
+		function onSlideStop(){
+			
+			clearInterval(timer);
+			
+		}
+		
+	</script>
+	
+	<script>	//비주얼 영역 애니메이션 설정
+		
+		//변수 선언
+		var $visulImg;
+		var $img;
+		var $imgBtn;
+		var overNum;
+		
+		$(document).ready(function(){
+			
+			//변수 지정
+			$visualImg=$("#visual_li li");
+			$img=$(".visual_img").children();
+			$imgBtn=$(".visual_btn");
+			
+			//이벤트 지정
+			$visualImg.bind("mouseenter",onMouseOver);
+			$visualImg.bind("mouseleave",onMouseOut);
+			
+		})
+		
+		function onMouseOver(){		//마우스 오버되었을때 애니메이션 실행 함수
+			
+			overNum=$visualImg.index($(this));
+					
+			$img.eq(overNum).animate({"top":-150,"opacity":0.8},200,"easeOutCubic");
+			$imgBtn.eq(overNum).css({"background":"#a87b4f"});
+			
+		}
+		
+		function onMouseOut(){		//마우스 아웃되었을 때 실행 함수
+			
+			$img.animate({"top":0,"opacity":1},200,"easeOutCubic");
+			$imgBtn.css({"background":"none"});
+			
+		}
+		
+	</script>
+	
+	<script>	//클램프 콘텐츠 변화 설정
+		
+		//변수 선언
+		var $listMenu;
+		var $list;
+		var $li;
+		var $liImg;
+		var clickNum;
+		var imgOverNum;
+		
+		$(document).ready(function(){
+			
+			//변수 지정
+			$listMenu=$("#clamp_menu a");
+			$list=$(".clamp_li ul");
+			$li=$(".clamp_li li");
+			$liImg=$(".clamp_li img");
+			
+			//이벤트 지정
+			$listMenu.bind("click",onListChange);
+			$li.bind("mouseenter",onMouseEnter);
+			$li.bind("mouseleave",onMouseLeave);
+			
+		})
+		
+		function onListChange(){	//작가와 작품 내용 변경해주는 함수
+			
+			clickNum=$listMenu.index($(this));
+			//alert(clickNum);
+			$listMenu.removeClass("selected");
+			$listMenu.eq(clickNum).addClass("selected");
+			
+			$list.hide();
+			$list.eq(clickNum).show();
+			
+		}
+		
+		function onMouseEnter(){
+			
+			imgOverNum=$li.index($(this));
+			//alert(imgOverNum);
+			$liImg.removeClass("selectImg");
+			$liImg.eq(imgOverNum).addClass("selectImg");
+			
+		}
+		
+		function onMouseLeave(){
+			
+			$liImg.removeClass("selectImg");
+			
+		}
+		
+	</script>
+	
+	<script>	//사쿠라 콘텐츠 변화 설정
+		
+		//변수 선언
+		var $sakuraList;
+		var $sakuraBox;
+		var listNum;
+		var scrollTop;
+		
+		$(document).scroll(function(){
+			
+			//변수 지정
+			$sakuraList=$("#sakura_li ul").children();
+			$sakuraBox=$sakuraList.children();
+			listNum=$sakuraList.size();
+						
+			//이벤트 지정
+			$(window).bind("scroll",onScroll);
+			
+		})
+		
+		function onScroll(){
+			
+			scrollTop=$(document).scrollTop();
+			
+			if(scrollTop>=900){
+				//alert(listNum);
+				for(var i=0; i<=listNum; i++){
+					
+					$sakuraBox.eq(i).animate({"top":0,"opacity":1},100*i,"swing");
+					
+				}
+				
+			}
+			
+		}
+		
+	</script>
+	
+	<script>
+		
+		var $tsuWrap;
+		var $tsuList;
+		var $tsuLi;
+		var $longDot;
+		var slideHieght;
+		var slideNum;
+		var dotNum;
+		
+		$(document).ready(function(){
+			
+			$tsuWrap=$("#tsubasa_gal");
+			$tsuList=$(".tsubasa_img");
+			$tsuLi=$tsuList.children();
+			$longDot=$("#slide_li li");
+			slideHeight=$tsuWrap.outerHeight();
+			slideNum=$tsuLi.size();
+			
+			$tsuList.css({"height":slideHeight*slideNum});
+			$tsuLi.css({"height":slideHeight});
+			
+			onAuto();
+			
+			$longDot.bind("mouseenter",onLongDotOver);
+			
+		})
+		
+		function onAuto(){
+			
+			dotNum=0;
+			
+			setInterval(onCount,3000);
+			
+		}
+		
+		
+		function onCount(){
+			
+			dotNum=dotNum+1
+			
+			if(dotNum>=slideNum){
+				
+				dotNum=0
+			}
+			
+			onSlide(dotNum);
+			
+			onShowDot(dotNum);
+			
+		}
+		
+		function onLongDotOver(){
+			
+			dotNum=$longDot.index($(this));
+			
+			onSlide(dotNum);
+			
+			onShowDot(dotNum);
+			
+		}
+		
+		function onSlide(selected){
+			
+			$tsuList.animate({"top":-slideHeight*selected});
+			
+		}
+		
+		function onShowDot(selected){
+			
+			$longDot.removeClass("selectImg");
+			$longDot.eq(selected).addClass("selectImg");
+			
+		}
+		
+	</script>
+	
+	<script>	//커뮤니티 hover 설정
+		
+		var $galleryList;
+		var $hover;
+		var hoverNum;
+		
+		$(document).ready(function(){
+			
+			$galleryList=$("#gallery li");
+			$hover=$galleryList.children("div");
+			
+			$galleryList.bind("mouseenter",onImgOver);
+			$galleryList.bind("mouseleave",onImgOut);
+			
+		})
+		
+		function onImgOver(){
+			
+			hoverNum=$galleryList.index($(this));
+			
+			$hover.eq(hoverNum).show();
+			
+		}
+		
+		function onImgOut(){
+			
+			hoverNum=$galleryList.index($(this));
+			
+			$hover.eq(hoverNum).hide();
+			
+		}
+		
+	</script>
+	
+	
+	
+	
+	<script>
+		
+		var textUrl;
+		var pageName;
+		
+		
+		$(window).load(function(){
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		})
+		
+		
+		
+		
+		
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
